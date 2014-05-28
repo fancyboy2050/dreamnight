@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+	<property name="LOG_HOME" value="/web/resin_vhost/"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<file>${LOG_HOME}/MobileChargeTask.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/MobileChargeTask.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>60</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%-26(%d{HH:mm:ss SSS,Asia/Chongqing} [%thread]) %-5level %logger{32} - %msg%n %caller{1, DISP_CALLER_EVAL}</pattern>
+        </encoder>
+    </appender>
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
