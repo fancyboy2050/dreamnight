@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.mybatis-spring.web</groupId>
-  <artifactId>mybatis-spring</artifactId>
+  <groupId>com.dreamnight</groupId>
+  <artifactId>dreamnight</artifactId>
   <packaging>war</packaging>
-  <version>0.1-PROTOTYPE</version>
+  <version>0.1</version>
   <name>mybatis-spring Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
     <build>
-    	<finalName>mybatis-spring</finalName>
+    	<finalName>dreamnight</finalName>
     	<defaultGoal>compile</defaultGoal>
 		<plugins>
 			<plugin>
