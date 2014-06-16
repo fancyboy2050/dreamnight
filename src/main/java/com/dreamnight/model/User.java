@@ -2,10 +2,6 @@ package com.dreamnight.model;
 
 import java.util.Date;
 
-/**
- * @author tianbenzhen@pwrd.com
- * @version 2014-5-27 下午7:41:37
- */
 public class User extends BaseObject{
 	
 	/**

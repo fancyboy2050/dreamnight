@@ -6,10 +6,6 @@ import org.apache.ibatis.annotations.Select;
 
 import com.dreamnight.model.User;
 
-/**
- * @author tianbenzhen@pwrd.com
- * @version 2014-5-27 下午7:56:02
- */
 public interface UserDao {
 	
 	@Insert("insert into user (email, password, salt, nickname, create_time) values (#{email}, #{password}, #{salt}, #{nickname}, now()")

@@ -8,10 +8,6 @@ import org.apache.ibatis.annotations.Select;
 
 import com.dreamnight.model.Consciousness;
 
-/**
- * @author tianbenzhen@pwrd.com
- * @version 2014-5-27 下午8:04:30
- */
 public interface ConsciousnessDao {
 	
 	@Insert("insert into consciousness (user_id, content, create_time) values (#{userId}, #{content}, #{createTime})")

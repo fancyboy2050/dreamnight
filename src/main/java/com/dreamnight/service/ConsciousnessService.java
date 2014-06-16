@@ -8,10 +8,6 @@ import org.springframework.stereotype.Component;
 import com.dreamnight.dao.ConsciousnessDao;
 import com.dreamnight.model.Consciousness;
 
-/**
- * @author tianbenzhen@pwrd.com
- * @version 2014-5-27 下午8:16:40
- */
 @Component
 public class ConsciousnessService {
 	

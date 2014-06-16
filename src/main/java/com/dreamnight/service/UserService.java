@@ -6,10 +6,6 @@ import org.springframework.stereotype.Component;
 import com.dreamnight.dao.UserDao;
 import com.dreamnight.model.User;
 
-/**
- * @author tianbenzhen@pwrd.com
- * @version 2014-5-27 下午8:14:29
- */
 @Component
 public class UserService {
 	
