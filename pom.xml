@@ -99,16 +99,23 @@
 
 	<repositories>
 		<repository>
-			<id>zongheng.com</id>
-			<url>http://repo.zongheng.com/maven2</url>
+			<id>pwrd-nexus</id>
+			<url>http://nexus.test.sys.wanmei.com/nexus/content/groups/public</url>
 		</repository>
 		<repository>
 			<id>intenet_central</id>
 			<url>http://repo1.maven.org/maven2</url>
 		</repository>
 		<repository>
-		    <id>springsource-repo</id>
-		    <url>http://repo.springsource.org/release</url>
+			<id>sonatype-forge</id>
+			<url>https://repository.sonatype.org/content/groups/forge/</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
   
