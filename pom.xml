@@ -166,6 +166,29 @@
 		  	<artifactId>mybatis</artifactId>
 		  	<version>3.2.3</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>${httpmime}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
 		<!-- Logging -->
 		<dependency>
@@ -286,6 +309,8 @@
         <dom4j-version>1.6.1</dom4j-version>
 		<commons-dbcp>1.2.2</commons-dbcp>
 		<commons-fileupload>1.2.1</commons-fileupload>
+		<httpclient>4.3</httpclient>
+		<httpmime>4.1.3</httpmime>
 	</properties>
   
 </project>
