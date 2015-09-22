@@ -28,7 +28,7 @@ public class HomeController {
 	
 	/**
 	 * params： 指定request中必须包含某些参数值是，才让该方法处理。
-     * headers： 指定request中必须包含某些指定的header值，才能让该方法处理请求。
+	 * headers： 指定request中必须包含某些指定的header值，才能让该方法处理请求。
 	 * @return
 	 */
 	@RequestMapping(value="/profile2", method=RequestMethod.GET,produces="application/json",params="uid=1",headers="Referer=http://www.test.com/")
