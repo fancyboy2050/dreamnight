@@ -9,10 +9,6 @@ public class JsoupUtil {
 	
 	public static Whitelist user_content_filter = Whitelist.relaxed();
 	
-	static {
-		user_content_filter.addTags("&");
-	}
-    
 	public static String disposeContent(String html){
 	    if(StringUtils.isBlank(html)) return "";
 	    return Jsoup.clean(html, user_content_filter);

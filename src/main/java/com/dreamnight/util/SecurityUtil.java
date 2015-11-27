@@ -3,9 +3,6 @@ package com.dreamnight.util;
 import java.security.MessageDigest;
 import java.util.UUID;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,26 +75,6 @@ public final class SecurityUtil {
 			logger.error("sha1 Exceptoion", e);
 		}
 		return sb.toString();
-	}
-	
-	/**
-	 * HmacMD5
-	 * @param key
-	 * @param params
-	 * @return
-	 */
-	public static String hmacMD5(String key, String... strs){
-		try {
-			Mac mac = Mac.getInstance("HmacMD5");
-	        mac.init(new SecretKeySpec(key.getBytes(), "HmacMD5"));
-	        for(String str : strs){
-	            mac.update(str.getBytes());
-	        }
-	        return HexUtil.toHexString(mac.doFinal()); 
-		} catch (Exception e) {
-			logger.error("hmacMD5 Exceptoion", e);
-			return "";
-		}
 	}
 
 	/**
