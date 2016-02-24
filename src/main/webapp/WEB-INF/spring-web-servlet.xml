@@ -22,5 +22,7 @@
      <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		 <property name="warnLogCategory" value="warn"/>
 	 </bean> 
+	 
+	 <import resource="remoting-servlet.xml"/>
 	
 </beans>
