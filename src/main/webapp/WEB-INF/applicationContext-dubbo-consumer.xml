@@ -5,10 +5,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
+<!-- 
     <dubbo:application name="restful-consumer"/>
 
     <dubbo:registry address="zookeeper://10.3.254.40:2181"/>
+    
+    <dubbo:monitor protocol="registry"/>
 
     <dubbo:reference id="userRemote" interface="com.dreamnight.restful.remote.IUserRemote"/>
+    
+    <dubbo:reference id="cache" interface="java.util.Map" url="memcached://10.20.153.10:11211" />
+ -->    
 
 </beans>

@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.nio.charset.Charset;
 import java.nio.charset.CodingErrorAction;
 import java.security.KeyStore;
 import java.security.cert.X509Certificate;
@@ -44,9 +43,10 @@ import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLContexts;
 import org.apache.http.conn.ssl.X509HostnameVerifier;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -603,56 +603,6 @@ public final class HttpClientUtil {
 	}
 
 	/**
-	 * HTTPS请求 废除，可以使用invokePost代替
-	 * 
-	 * @param url
-	 * @param params
-	 * @param connectTimeout
-	 * @param soTimeout
-	 * @return success return content get from response and failed return null
-	 */
-	@Deprecated
-	public static String invokeHttpsPost(String url, Map<String, String> params, int connectTimeout, int soTimeout) {
-		String responseContent = null;
-		HttpPost httpPost = new HttpPost(url);
-		try {
-			RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(soTimeout)
-					.setConnectTimeout(connectTimeout).setConnectionRequestTimeout(connectTimeout)
-					.setExpectContinueEnabled(false).build();
-
-			List<NameValuePair> formParams = new ArrayList<NameValuePair>();
-			httpPost.setConfig(requestConfig);
-			for (Map.Entry<String, String> entry : params.entrySet()) {
-				formParams.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
-			}
-			httpPost.setEntity(new UrlEncodedFormEntity(formParams, Consts.UTF_8));
-			logger.info("[HttpUtils https post], uri : " + httpPost.getURI() + ", params:" + params);
-			CloseableHttpResponse response = httpClient.execute(httpPost);
-			try {
-				if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-					HttpEntity entity = response.getEntity();
-					if (null != entity) {
-						responseContent = EntityUtils.toString(entity, Consts.UTF_8);
-						logger.info("requestURI : " + httpPost.getURI() + ", responseContent: " + responseContent);
-					}
-				} else {
-					httpPost.abort();
-				}
-			} finally {
-				if (response != null) {
-					response.close();
-				}
-			}
-		} catch (Exception e) {
-			httpPost.abort();
-			logger.error("IOException", e);
-		} finally {
-			httpPost.releaseConnection();
-		}
-		return responseContent;
-	}
-
-	/**
 	 * 多媒体格式的https请求
 	 * 
 	 * @param file
@@ -693,15 +643,15 @@ public final class HttpClientUtil {
 					httpPost.setHeader(entry.getKey(), entry.getValue());
 				}
 			}
-
-			MultipartEntity reqEntity = new MultipartEntity();
+			
 			FileBody fileBody = new FileBody(file);
-			reqEntity.addPart("pic", fileBody);
+			MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create().addPart("pic", fileBody);
+			ContentType contentType = ContentType.create("text/plain", Consts.UTF_8);
 			for (Map.Entry<String, String> entry : params.entrySet()) {
-				StringBody sbody = new StringBody(entry.getValue(), Charset.forName("UTF-8"));
-				reqEntity.addPart(entry.getKey(), sbody);
+				StringBody sbody = new StringBody(entry.getValue(), contentType);
+				multipartEntityBuilder.addPart(entry.getKey(), sbody);
 			}
-			httpPost.setEntity(reqEntity);
+			httpPost.setEntity(multipartEntityBuilder.build());
 			CloseableHttpResponse response = httpClient.execute(httpPost);
 			try {
 				HttpEntity entity = response.getEntity();
