@@ -9,5 +9,11 @@
 </head>
 <body>
 ERROR
+<%
+	Logger log = LoggerFactory.getLogger(getClass());
+	if(exception != null) {
+	   log.error("page error", exception);
+	}
+%>
 </body>
 </html>

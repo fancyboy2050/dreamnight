@@ -8,12 +8,14 @@
   <name>dreamnight Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
+  <!-- 
   <parent>
         <groupId>io.spring.platform</groupId>
         <artifactId>platform-bom</artifactId>
         <version>1.1.2.RELEASE</version>
         <relativePath/>
     </parent>
+     -->
   
     <build>
     	<finalName>dreamnight</finalName>
@@ -109,6 +111,7 @@
 		</testResources>
     </build>
     
+    <!-- 
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -120,23 +123,28 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+     -->
   
     <dependencies>
   		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
+			<version>${commons-io}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
+			<version>${commons-lang}</version>
 		</dependency>
 		<dependency>
 		    <groupId>commons-codec</groupId>
 		    <artifactId>commons-codec</artifactId>
+		    <version>${commons-codec.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -151,6 +159,7 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
    		</dependency>
    		
    		<dependency>
@@ -167,6 +176,7 @@
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
+			<version>${httpclient}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
@@ -177,6 +187,7 @@
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpmime</artifactId>
+			<version>${httpmime}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
@@ -189,19 +200,23 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
+			<version>${logback-version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
+			<version>${spring-version}</version>
 			<exclusions>
 				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
@@ -213,14 +228,17 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+			<version>${spring-version}</version>
 		</dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
+            <version>${spring-version}</version>
         </dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
+			<version>${spring-version}</version>
 			<exclusions>
 				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
@@ -232,38 +250,46 @@
 		<dependency>
 	        <groupId>org.springframework.data</groupId>
 	        <artifactId>spring-data-jpa</artifactId>
+	        <version>1.11.4.RELEASE</version>
 	    </dependency>
 		<!--/src/main/webapp/WEB-INF/lib/ssoclient-->
 		<!-- json -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-core-asl</artifactId>
+			<version>${jackson}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-xc</artifactId>
-			<version>1.9.13</version>
+			<version>${jackson}</version>
 		</dependency>
         <dependency>
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
+			<version>${dom4j-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
+			<version>${commons-fileupload}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 		</dependency>
+		 -->
 		<dependency>
 		  <!-- jsoup HTML parser library @ http://jsoup.org/ -->
 		  <groupId>org.jsoup</groupId>
@@ -275,14 +301,18 @@
 	        <artifactId>druid</artifactId>
 	        <version>1.0.15</version>
 	    </dependency>
+	    <!-- 
 		<dependency>
 		    <groupId>io.netty</groupId>
 		    <artifactId>netty-all</artifactId>
+		    <version>${netty-all-version}</version>
 		    <scope>compile</scope>
 		</dependency>
+		 -->
 		<dependency>
 			<groupId>com.caucho</groupId>
 			<artifactId>hessian</artifactId>
+			<version>${hessian.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.alibaba.rocketmq</groupId>
@@ -323,19 +353,27 @@
             <artifactId>zkclient</artifactId>
             <version>0.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.excalibur</groupId>
+            <artifactId>excalibur-core</artifactId>
+            <version>2.0.3</version>
+        </dependency>
 		
 		
 		<dependency>
 		    <groupId>junit</groupId>
 		    <artifactId>junit</artifactId>
+		    <version>${junit.version}</version>
 		    <scope>test</scope>
 		</dependency>
   	</dependencies>
   	
   	<properties>
 		<commons-lang>2.4</commons-lang>
+		<commons-codec.version>1.4</commons-codec.version>
 		<servlet>2.4</servlet>
 		<jsp>2.0</jsp>
+		<jstl.version>1.2</jstl.version>
 		<commons-io>1.4</commons-io>
 		<commons-beanutils>1.7.0</commons-beanutils>
 		<mysql>5.1.6</mysql>
@@ -346,8 +384,12 @@
 		<commons-dbcp>1.2.2</commons-dbcp>
 		<commons-fileupload>1.2.1</commons-fileupload>
 		<httpclient>4.3</httpclient>
-		<httpmime>4.1.3</httpmime>
+		<httpmime>4.5.3</httpmime>
 		<hessian-version>4.0.7</hessian-version>
+		<jackson>1.9.13</jackson>
+		<netty-all-version>4.1.6.Final</netty-all-version>
+		<junit.version>4.7</junit.version>
+		<hessian.version>3.1.5</hessian.version>
 	</properties>
   
 </project>
