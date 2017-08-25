@@ -15,6 +15,10 @@
     <dubbo:reference id="userRemote" interface="com.dreamnight.restful.remote.IUserRemote"/>
     
     <dubbo:reference id="cache" interface="java.util.Map" url="memcached://10.20.153.10:11211" />
- -->    
+ -->
+	<bean id="user" class="com.dreamnight.model.User">
+		<property name="email" value="test@test.com"/>
+		<property name="password" value="testpassword"/>
+	</bean>
 
 </beans>

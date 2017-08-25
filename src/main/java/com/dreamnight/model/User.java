@@ -1,6 +1,7 @@
 package com.dreamnight.model;
 
 import java.util.Date;
+import java.util.Map;
 
 public class User extends BaseObject{
 	
@@ -13,9 +14,27 @@ public class User extends BaseObject{
 	private String password;
 	private String salt;
 	private String nickname;
+	private boolean sex;
+	private Map<String, Integer> points;
 	private Date createTime;
 	private Date updateTime;
-	
+
+	public Map<String, Integer> getPoints() {
+		return points;
+	}
+
+	public void setPoints(Map<String, Integer> points) {
+		this.points = points;
+	}
+
+	public boolean isSex() {
+		return sex;
+	}
+
+	public void setSex(boolean sex) {
+		this.sex = sex;
+	}
+
 	public Long getId() {
 		return id;
 	}

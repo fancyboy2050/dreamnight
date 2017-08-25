@@ -57,7 +57,7 @@ public class IndexController {
 	
 	/** 
      * 异常页面控制 
-     * @param RuntimeException 
+     * @param runtimeException
      * @return 
      */  
     @ExceptionHandler(RuntimeException.class)  

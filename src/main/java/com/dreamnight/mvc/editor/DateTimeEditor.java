@@ -7,9 +7,12 @@ import java.util.Date;
 import java.util.List;
 
 import com.excalibur.core.util.StringHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DateTimeEditor extends PropertyEditorSupport {
 
+	private final static Logger logger = LoggerFactory.getLogger(DateTimeEditor.class);
 	/**
 	 * 按照定义时加入列表的顺序优先匹配.
 	 */
@@ -32,6 +35,8 @@ public class DateTimeEditor extends PropertyEditorSupport {
 
 	@Override
 	public void setAsText(String text) throws IllegalArgumentException {
+		logger.info("---------------------------------------DateTimeEditor setAsText doing! text : "+text);
+		logger.info("---------------------------------------DateTimeEditor setAsText doing! value : "+getValue());
 		if (this.allowEmpty && StringHelper.isBlank(text)) {
 			setValue(null);
 		} else {

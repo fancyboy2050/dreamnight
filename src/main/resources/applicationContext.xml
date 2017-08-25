@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="user" class="com.dreamnight.model.User">
+		<property name="email" value="test@test.com"/>
+		<property name="password" value="testpassword"/>
+		<property name="sex" value="1"/>
+		<property name="points">
+			<map key-type="java.lang.String" value-type="java.lang.Integer">
+				<entry key="math" value="100"/>
+				<entry key="language" value="99"/>
+			</map>
+		</property>
+ 	</bean>
+
+</beans>
