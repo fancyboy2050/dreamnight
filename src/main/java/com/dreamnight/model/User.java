@@ -78,4 +78,18 @@ public class User extends BaseObject{
 		this.updateTime = updateTime;
 	}
 
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", salt='" + salt + '\'' +
+				", nickname='" + nickname + '\'' +
+				", sex=" + sex +
+				", points=" + points +
+				", createTime=" + createTime +
+				", updateTime=" + updateTime +
+				'}';
+	}
 }

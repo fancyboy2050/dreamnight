@@ -8,10 +8,8 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
-import org.springframework.util.ClassUtils;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by tianbenzhen on 2017/8/22.
